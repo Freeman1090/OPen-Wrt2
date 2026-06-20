@@ -1,5 +1,13 @@
 #!/bin/bash
-#
+#!/bin/bash
+# Удаляем конфликтующие out-of-tree драйверы из QModem
+rm -rf feeds/qmodem/driver/quectel_QMI_WWAN
+rm -rf feeds/qmodem/driver/fibocom_QMI_WWAN
+rm -rf feeds/qmodem/driver/simcom_QMI_WWAN
+
+# Делаем скрипты исполняемыми (если они уже лежат в папке files)
+chmod +x $GITHUB_WORKSPACE/files/usr/bin/modem-init.sh 2>/dev/null || true
+chmod +x $GITHUB_WORKSPACE/files/etc/init.d/modem-init 2>/dev/null || true
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
