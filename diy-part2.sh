@@ -1,28 +1,12 @@
 #!/bin/bash
-#!/bin/bash
-# Удаляем конфликтующие out-of-tree драйверы из QModem
+#=================================================
+# DIYpart2.sh
+#=================================================
+# Удаляем конфликтующие драйверы из QModem
 rm -rf feeds/qmodem/driver/quectel_QMI_WWAN
 rm -rf feeds/qmodem/driver/fibocom_QMI_WWAN
 rm -rf feeds/qmodem/driver/simcom_QMI_WWAN
 
-# Делаем скрипты исполняемыми (если они уже лежат в папке files)
+# Права на скрипты (если папка files уже создана в репозитории)
 chmod +x $GITHUB_WORKSPACE/files/usr/bin/modem-init.sh 2>/dev/null || true
 chmod +x $GITHUB_WORKSPACE/files/etc/init.d/modem-init 2>/dev/null || true
-# https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-part2.sh
-# Description: OpenWrt DIY script part 2 (After Update feeds)
-#
-# Copyright (c) 2019-2024 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-
-# Modify default IP
-#sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
-
-# Modify default theme
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-
-# Modify hostname
-#sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
